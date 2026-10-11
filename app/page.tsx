@@ -1,69 +1,105 @@
-import Image from "next/image";
+const wishes = [
+  {
+    number: "01",
+    title: "Semoga mimpi-mimpimu pelan-pelan jadi nyata",
+    note: "Aku tahu ada banyak hal yang sedang kamu usahakan. Take your time, love. Aku akan selalu dukung kamu, apa pun jalannya.",
+  },
+  {
+    number: "02",
+    title: "Semoga kamu selalu punya alasan untuk merasa tenang",
+    note: "Kamu nggak harus selalu terlihat kuat. It's okay to rest, to cry, and to have bad days. Aku tetap ada di sini.",
+  },
+  {
+    number: "03",
+    title: "Semoga lebih banyak hal baik datang kepadamu",
+    note: "Semoga kamu selalu sehat, dikelilingi orang-orang tulus, dan punya banyak alasan kecil untuk tersenyum.",
+  },
+];
+
+function HeartMark() {
+  return <span className="heart-mark" aria-hidden="true">♥</span>;
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <nav className="topbar" aria-label="Navigasi halaman">
+        <a className="wordmark" href="#awal"><HeartMark /> untukmu</a>
+        <a className="nav-link" href="#surat">A letter for you <span aria-hidden="true">↗</span></a>
+      </nav>
+
+      <section className="hero" id="awal">
+        <div className="hero-copy">
+          <p className="eyebrow"><span /> A LITTLE NOTE FOR YOUR NEW CHAPTER</p>
+          <h1>Happy birthday,<br /><em>my love.</em></h1>
+          <p className="hero-intro">Hari ini giliran kamu yang dirayakan, seseorang yang kehadirannya begitu berarti dalam hidupku. Aku bersyukur bisa mengenal dan menjadi bagian dari perjalanan hidupmu. I hope this new chapter brings you endless happiness, beautiful surprises, and all the good things you&apos;ve been wishing for. Semoga tahun ini membawa lebih banyak hal baik, dan membuatmu sebahagia kamu telah membuatku bahagia. <span aria-hidden="true">❤️</span></p>
+          <a className="button-link" href="#surat">Ada surat untukmu <span aria-hidden="true">↓</span></a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="hero-art" aria-label="Tempat foto kenangan kalian">
+          <div className="art-orbit orbit-one" />
+          <div className="art-orbit orbit-two" />
+          <div className="photo-placeholder">
+            <span className="placeholder-icon" aria-hidden="true">✳</span>
+            <span>A PLACE FOR OUR MEMORIES</span>
+            <small>Foto kita menyusul di sini</small>
+          </div>
+          <span className="floating-heart heart-one" aria-hidden="true">♡</span>
+          <span className="floating-heart heart-two" aria-hidden="true">✳</span>
+          <div className="art-caption"><span>SEBUAH HARI,</span><span>SEBUAH CERITA.</span></div>
         </div>
-      </main>
-    </div>
+        <div className="hero-bottom"><span>CELEBRATING YOU, TODAY AND ALWAYS</span><span>01 / 04</span></div>
+      </section>
+
+      <section className="note-section" aria-labelledby="note-title">
+        <div className="section-kicker"><span>01</span><span className="kicker-line" /><span>YANG INGIN KURAYAKAN</span></div>
+        <div className="note-content">
+          <h2 id="note-title">Hari ini kamu bertambah umur.<br /><em>Dan aku makin bersyukur punya kamu.</em></h2>
+          <p>Perjalananmu sampai hari ini nggak selalu gampang. Ada hari-hari yang melelahkan dan hal-hal yang mungkin kamu simpan sendiri, tapi kamu tetap berusaha melangkah. Look at you, you’ve made it this far. Aku bangga banget sama kamu.</p>
+          <p>Makasih yaa sudah bertahan dan jadi dirimu yang sekarang. Semoga kamu juga bisa melihat betapa hebatnya dirimu, seperti aku melihatmu.</p>
+        </div>
+        <span className="note-flower" aria-hidden="true">✳</span>
+      </section>
+
+      <section className="memories-section" aria-labelledby="memories-title">
+        <div className="memories-heading">
+          <div className="section-kicker"><span>02</span><span className="kicker-line" /><span>SEBUAH HARAPAN UNTUKMU</span></div>
+          <h2 id="memories-title">Buat tahun yang baru,<br /><em>semoga banyak hal baik datang.</em></h2>
+          <p>Namamu selalu ada di doa-doa baikku. Semoga Tuhan jaga setiap langkahmu, dan semoga kamu selalu punya alasan kecil untuk kembali semangat.</p>
+        </div>
+        <div className="memory-list">
+          {wishes.map((wish) => (
+            <article className="memory-item" key={wish.number}>
+              <span className="memory-number">{wish.number}</span>
+              <div><h3>{wish.title}</h3><p>{wish.note}</p></div>
+              <span className="memory-arrow" aria-hidden="true">↗</span>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="letter-section" id="surat" aria-labelledby="letter-title">
+        <div className="letter-decoration" aria-hidden="true">♡</div>
+        <div className="section-kicker"><span>03</span><span className="kicker-line" /><span>A LETTER FOR YOU</span></div>
+        <div className="letter-card">
+          <p className="letter-date">ON YOUR VERY SPECIAL DAY</p>
+          <h2 id="letter-title">Untukmu, <em>my love.</em></h2>
+          <div className="letter-body">
+            <p>Happy birthday, sayangku. Makasih yaa sudah lahir ke dunia ini dan sudah bertahan sejauh ini. Aku bersyukur banget bisa kenal kamu dan punya kamu di hidupku.</p>
+            <p>Aku tahu ada hari-hari ketika kamu capek, sedih, atau kecewa, tapi kamu tetap berusaha bangkit dan jalan lagi. Mungkin nggak semua orang tahu seberapa keras kamu sudah berjuang, tapi aku lihat itu. And I’m so proud of you.</p>
+            <p>Di umur yang baru ini, semoga kamu selalu sehat, diberi hati yang lapang, dan dimudahkan buat mengejar hal-hal yang kamu impikan. Semoga doa-doa yang belum terjawab nanti datang kembali dalam bentuk yang lebih indah.</p>
+            <p>Hidup mungkin nggak selalu berjalan sesuai rencana, jadi jangan bandingkan langkahmu sama orang lain, yaa. Kamu punya waktu dan jalanmu sendiri. Kalau semuanya terasa berat, kamu boleh istirahat, boleh nangis, dan boleh cerita apa aja ke aku. Aku mungkin nggak selalu punya jawaban, but I’ll always try to be here, listen, and support you.</p>
+            <p>Jangan lupa berterima kasih juga sama diri sendiri. Kamu sudah berusaha sebaik mungkin, bahkan di hari-hari yang sulit. Kamu hebat, sayang, dan kamu pantas mendapatkan banyak hal baik.</p>
+            <p>Semoga tahun ini lebih banyak ketawanya, lebih banyak tenangnya, dan lebih banyak momen yang bikin kamu merasa disayang. I hope life treats you gently, especially on the days when you’re trying your hardest.</p>
+            <p>Makasih sudah jadi bagian paling indah dalam hidupku. Aku senang bisa jalan bareng kamu, merayakan hal-hal kecil, dengerin cerita harianmu, dan melihatmu tumbuh. Whatever comes next, I’ll be cheering for you.</p>
+            <p>Once again, happy birthday to my favorite person. Jangan lupa bahagia yaa, my love. I love you so much, and I’ll always be grateful that I get to love someone like you.</p>
+          </div>
+          <p className="letter-signoff">With all my love, <span>Rifqi</span> <HeartMark /></p>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <span>DIBUAT DENGAN HATI</span><HeartMark /><span>KHUSUS UNTUKMU</span>
+      </footer>
+    </main>
   );
 }
