@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const wishes = [
   {
     number: "01",
@@ -14,6 +16,29 @@ const wishes = [
     title: "Semoga lebih banyak hal baik datang kepadamu",
     note: "Semoga kamu selalu sehat, dikelilingi orang-orang tulus, dan punya banyak alasan kecil untuk tersenyum.",
   },
+];
+
+const galleryPhotos = [
+  { src: "/foto/20260410_170647.jpeg", alt: "Kenangan berdua", shape: "landscape" },
+  { src: "/foto/41f4d036-7fb5-4f46-b6b8-05e345052406.png", alt: "Photo strip kenangan", contain: true },
+  { src: "/foto/74856548-f0f0-49ce-afb8-db57a040756b.jpg", alt: "Potret kenangan" },
+  { src: "/foto/compiled.jpeg", alt: "Kolase foto kenangan", contain: true },
+  { src: "/foto/IMG-20250316-WA0002.jpeg", alt: "Momen jalan-jalan", shape: "portrait" },
+  { src: "/foto/IMG-20250412-WA0020(2).jpeg", alt: "Momen bersama", shape: "portrait" },
+  { src: "/foto/IMG-20251029-WA0026.jpeg", alt: "Kolase momen kecil", contain: true },
+  { src: "/foto/IMG-20251029-WA0027.jpeg", alt: "Kolase kenangan" },
+  { src: "/foto/IMG-20260409-WA0053.jpeg", alt: "Selfie bersama" },
+  { src: "/foto/IMG-20260419-WA0046.jpeg", alt: "Momen berdua", shape: "portrait" },
+  { src: "/foto/IMG-20260419-WA0048.jpeg", alt: "Kenangan di perjalanan", shape: "portrait" },
+  { src: "/foto/IMG-20260514-WA0035.jpeg", alt: "Potret manis" },
+  { src: "/foto/IMG-20260605-WA0050.jpeg", alt: "Selfie bersama", shape: "portrait" },
+  { src: "/foto/IMG-20260610-WA0023.jpeg", alt: "Potret kenangan", shape: "portrait" },
+  { src: "/foto/IMG_0032.PNG", alt: "Photo strip berdua", contain: true },
+  { src: "/foto/IMG_1028.PNG", alt: "Selfie bersama", shape: "landscape" },
+  { src: "/foto/IMG_1457.JPG", alt: "Photo strip kenangan", contain: true },
+  { src: "/foto/motion_photo_1743442946657454070.jpeg", alt: "Momen jalan-jalan", shape: "portrait" },
+  { src: "/foto/motion_photo_42244638259432902.jpeg", alt: "Momen malam bersama", shape: "portrait" },
+  { src: "/foto/motion_photo_6340637320550999241.jpeg", alt: "Momen dengan foto kenangan", shape: "portrait" },
 ];
 
 function HeartMark() {
@@ -39,9 +64,7 @@ export default function Home() {
           <div className="art-orbit orbit-one" />
           <div className="art-orbit orbit-two" />
           <div className="photo-placeholder">
-            <span className="placeholder-icon" aria-hidden="true">✳</span>
-            <span>A PLACE FOR OUR MEMORIES</span>
-            <small>Foto kita menyusul di sini</small>
+            <Image src="/foto/IMG_1457.JPG" alt="Photo strip kenangan kita" fill priority sizes="(max-width: 760px) 63vw, 30vw" />
           </div>
           <span className="floating-heart heart-one" aria-hidden="true">♡</span>
           <span className="floating-heart heart-two" aria-hidden="true">✳</span>
@@ -77,9 +100,24 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="gallery-section" aria-labelledby="gallery-title">
+        <div className="gallery-heading">
+          <div className="section-kicker"><span>03</span><span className="kicker-line" /><span>OUR LITTLE MOMENTS</span></div>
+          <h2 id="gallery-title">Potongan kecil<br /><em>dari cerita kita.</em></h2>
+          <p>Beberapa momen yang ingin kusimpan lebih lama.</p>
+        </div>
+        <div className="photo-grid photo-grid-tidy">
+          {galleryPhotos.map((photo, index) => (
+            <figure className={`gallery-photo gallery-photo-tidy${photo.shape ? ` gallery-photo-${photo.shape}` : ""}${photo.contain ? " gallery-photo-contain" : ""}`} key={photo.src}>
+              <img src={photo.src} alt={photo.alt} loading={index < 4 ? "eager" : "lazy"} />
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="letter-section" id="surat" aria-labelledby="letter-title">
         <div className="letter-decoration" aria-hidden="true">♡</div>
-        <div className="section-kicker"><span>03</span><span className="kicker-line" /><span>A LETTER FOR YOU</span></div>
+        <div className="section-kicker"><span>04</span><span className="kicker-line" /><span>A LETTER FOR YOU</span></div>
         <div className="letter-card">
           <p className="letter-date">ON YOUR VERY SPECIAL DAY</p>
           <h2 id="letter-title">Untukmu, <em>my love.</em></h2>
